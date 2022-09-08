@@ -26,28 +26,30 @@ export default class Rate extends React.Component{
             if(a>0 && a<=5){
                 this.state.rating.push(a)
                 this.state.count++
-            }
             
-            this.state.sum = this.state.rating.reduce((previousValue, currentValue) => previousValue + currentValue, 0)
-            console.log(this.state.rating.length)
-
-            this.state.score =  this.state.sum/this.state.count
-
-            if (this.state.score < 5){
-                this.setState({stars: <>&#9733;&#9733;&#9733;&#9733;</>})
-                if(this.state.score < 4){
-                    this.setState({stars: <>&#9733;&#9733;&#9733;</>})
-                    if(this.state.score < 3){
-                        this.setState({stars: <>&#9733;&#9733;</>})
-                        if(this.state.score < 2){
-                            this.setState({stars: <>&#9733;</>})
-                            
+            
+                this.state.sum = this.state.rating.reduce((previousValue, currentValue) => previousValue + currentValue, 0)
+                console.log(this.state.rating.length)
+    
+                this.state.score =  this.state.sum/this.state.count
+    
+                if (this.state.score < 5){
+                    this.setState({stars: <>&#9733;&#9733;&#9733;&#9733;</>})
+                    if(this.state.score < 4){
+                        this.setState({stars: <>&#9733;&#9733;&#9733;</>})
+                        if(this.state.score < 3){
+                            this.setState({stars: <>&#9733;&#9733;</>})
+                            if(this.state.score < 2){
+                                this.setState({stars: <>&#9733;</>})
+                                
+                            }
                         }
                     }
-                }
-
-            }else{this.setState({stars: <>&#9733;&#9733;&#9733;&#9733;&#9733;</> })}
-            //console.log(this.state.rating)
+    
+                }else{this.setState({stars: <>&#9733;&#9733;&#9733;&#9733;&#9733;</> })}
+            }
+            
+    
             
             
             this.setState({text: <span className="center"></span>})
